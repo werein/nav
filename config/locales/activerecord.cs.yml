@@ -1,0 +1,25 @@
+cs:
+  created_updated_at: &cuat
+    created_at: Vytvořeno
+    updated_at: Aktualizováno
+  activerecord:
+    models:
+      nav/navigation:
+        one: Navigace
+        other: Navigace
+
+    attributes:
+      nav/navigation:
+        name: Označení
+        title: Text
+        subtitle: Podtext
+        locale: Jazyk
+        permalink: Odkaz
+        ancestry: Ancestry
+        position: Pozice
+        controller: Funkce
+        action: Akce
+        object: Objekt
+        custom: Vlastní odkaz
+        parent: Nadřazená
+        <<: *cuat

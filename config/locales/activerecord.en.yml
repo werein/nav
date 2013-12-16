@@ -1,0 +1,25 @@
+en:
+  created_updated_at: &cuat
+    created_at: Created at
+    updated_at: Updated at
+  activerecord:
+    models:
+      nav/navigation:
+        one: Navigation
+        other: Navigations
+
+    attributes:
+      nav/navigation:
+        name: Name
+        title: Title
+        subtitle: Subtitle
+        locale: Locale
+        permalink: Permalink
+        ancestry: Ancestry
+        position: Position
+        controller: Controller
+        action: Action
+        object: Object
+        custom: Custom
+        parent: Parent
+        <<: *cuat
