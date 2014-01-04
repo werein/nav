@@ -10,6 +10,10 @@ module Nav
       Decorators.register! Engine.root, Rails.root
     end
 
+    initializer :append_views do
+      ActionView::Base.send :include, Nav::ApplicationHelper
+    end if Rails.env.production?
+
     initializer :append_migrations do |app|
       unless app.root.to_s.match root.to_s
         config.paths["db/migrate"].expanded.each do |expanded_path|
