@@ -17,6 +17,4 @@ Gem::Specification.new do |s|
   s.test_files  = Dir["test/*.*" ,"test/{cells,controllers,data,helpers,integration,models}/**/*","test/dummy/*.*", "test/dummy/{app,bin,config,db,lib}/**/*"]
 
   s.add_dependency "rails", "~> 4.0"
-
-  s.add_development_dependency "testable"
 end
