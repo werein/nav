@@ -2,7 +2,7 @@ require "test_helper"
 
 module Nav
   describe Navigation do
-    let(:navigation) { build_stubbed(:navigation, name: 'default') }
+    let(:navigation) { build_stubbed(:navigation, name: 'test') }
 
     it "must be valid" do
       navigation.must_be :valid?

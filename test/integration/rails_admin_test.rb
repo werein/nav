@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe "Rails Admin integration test" do
-  let(:current_user)  { build(:user) }
-  setup               { integration_login }
-  teardown            { Warden.test_reset! }
+describe "Rails Admin Feature" do
+  let(:current_user)  { FactoryGirl.create(:user) }
+  before              { integration_login }
+  after               { Warden.test_reset! }
 
   it "must have access to create new page" do 
     visit rails_admin.new_path(model_name: 'nav~navigation')
