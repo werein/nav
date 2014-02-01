@@ -5,9 +5,9 @@ module Nav
       if navigation
         tree = navigation.subtree.arrange(order: :position)
         if options[:theme]
-          send("#{options[:theme]}_navigation_tree", tree[navigation], options).html_safe
+          send("navigation_tree_#{options[:theme]}", tree[navigation], options).html_safe
         else
-          navigation_tree(tree[navigation], options).html_safe
+          navigation_tree(tree[navigation], options)
         end
       end
     end
@@ -23,10 +23,10 @@ module Nav
           output << '</li>'
           output
         end.join.html_safe
-      end
+      end.html_safe
     end
 
-    def bootstrap_navigation_tree tree_nodes = [], options = {}
+    def navigation_tree_bootstrap tree_nodes = [], options = {}
       options[:ul_class] = 'nav navbar-nav' unless options[:ul_class]
       content_tag :ul, class: options[:ul_class] do
         tree_nodes.map do |tree_node, sub_tree_nodes|
@@ -42,7 +42,7 @@ module Nav
               output = '<li>'
             end
             output << "<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">#{tree_node.title}#{caret if caret}</a>"
-            output << bootstrap_navigation_tree(sub_tree_nodes, options)
+            output << navigation_tree_bootstrap(sub_tree_nodes, options)
           else
             output = "<li #{'class="active"' if current_page?(tree_node.permalink)}>"
             output << link_to(tree_node.title, tree_node.permalink)

@@ -1,18 +1,13 @@
 require 'core'
 require 'auth'
-require 'decorators'
 
 module Nav
   class Engine < ::Rails::Engine
     isolate_namespace Nav
 
-    config.to_prepare do
-      Decorators.register! Engine.root, Rails.root
-    end
-
     initializer :append_views do
-      ActionView::Base.send :include, Nav::ApplicationHelper
-    end if Rails.env.production?
+      ActionView::Base.send :include, ApplicationHelper
+    end
 
     initializer :append_migrations do |app|
       unless app.root.to_s.match root.to_s
