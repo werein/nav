@@ -1,14 +1,11 @@
 module Nav
   module ApplicationHelper
-    def navigation name, options = {}
-      navigation = Navigation.find_by(name: name, locale: I18n.locale)
-      if navigation
-        tree = navigation.subtree.arrange(order: :position)
-        if options[:theme]
-          send("navigation_tree_#{options[:theme]}", tree[navigation], options).html_safe
-        else
-          navigation_tree(tree[navigation], options)
-        end
+    def navigation navigation, options = {}
+      tree = navigation.subtree.arrange(order: :position)
+      if options[:theme]
+        send("navigation_tree_#{options[:theme]}", tree[navigation], options).html_safe
+      else
+        navigation_tree(tree[navigation], options)
       end
     end
 
