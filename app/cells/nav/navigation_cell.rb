@@ -5,10 +5,13 @@ module Nav
     helper Core::ApplicationHelper
     append_view_path 'app/views'
 
-    cache :show, expires_in: 2.hours
-    def show name, args = {}
+    cache :show, expires_in: 2.hours do |cell, name, options|
+      "#{name} #{I18n.locale} #{options[:view] if options}"
+    end
+
+    def show name, options = {}
       @nav_navigation = Navigation.find_by(name: name, locale: I18n.locale)
-      args[:view] ? render(view: args[:view]) : render if @nav_navigation
+      options[:view] ? render(view: options[:view]) : render if @nav_navigation
     end
   end
 end
