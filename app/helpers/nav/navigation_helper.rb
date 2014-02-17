@@ -1,5 +1,5 @@
 module Nav
-  module ApplicationHelper
+  module NavigationHelper
     def navigation navigation, options = {}
       tree = navigation.subtree.arrange(order: :position)
       if options[:theme]

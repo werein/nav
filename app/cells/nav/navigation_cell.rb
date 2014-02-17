@@ -1,9 +1,6 @@
 module Nav
   class NavigationCell < Cell::Rails
-    include CanCan::ControllerAdditions
-    include Core::ApplicationHelper
-    helper Core::ApplicationHelper
-    append_view_path 'app/views'
+    helper NavigationHelper
 
     cache :show, expires_in: 2.hours do |cell, name, options|
       "#{name} #{I18n.locale} #{options[:view] if options}"
