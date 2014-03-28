@@ -10,7 +10,7 @@ RailsAdmin.config do |config|
     nestable_tree({
       position_field: :position,
       max_depth: 4
-    })
+    }) if defined? RailsAdminNestable
     field :parent_id, :enum do
       enum_method do
         :parent_enum
