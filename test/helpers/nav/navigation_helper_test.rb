@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Nav
-  describe ApplicationHelper do
+  describe NavigationHelper do
     describe "default navigation" do 
       before do 
         @root = create(:navigation, name: 'default')
