@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Navigation for Rails'
   s.description = 'Navigation for Rails'
 
-  s.files       = Dir['{app,config,db,lib}/**/*', 'License.txt', 'Rakefile', 'Readme.md']
+  s.files       = Dir['{app,config,db,lib}/**/*', 'LICENSE.txt', 'Rakefile', 'README.md']
   s.test_files  = Dir['test/*.*' ,'test/{cells,controllers,data,helpers,integration,models}/**/*','test/dummy/*.*', 'test/dummy/{app,bin,config,db,lib}/**/*']
 
   s.add_dependency 'rails', '~> 4.0'
