@@ -1,5 +1,6 @@
-require 'core'
-require 'auth'
+require 'ancestry'
+require 'enumerize'
+require 'cells'
 
 module Nav
   class Engine < ::Rails::Engine
