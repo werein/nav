@@ -11,6 +11,8 @@ CodeClimate::TestReporter.start if SERVICES.include?(:codeclimate)
 Coveralls.wear! if SERVICES.include?(:coveralls) and Coveralls.should_run?
 # Coveralls.wear!('rails') # For RailsApp
 
+SimpleCov.start('rails') if SERVICES.include?(:simplecov)
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
