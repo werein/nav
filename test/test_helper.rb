@@ -1,12 +1,14 @@
+SERVICES = [ :simplecov ]
+
 # Keep it on top, don't change positions
-require 'codeclimate-test-reporter'
-require 'simplecov'
-require 'coveralls'
+require 'codeclimate-test-reporter' if SERVICES.include?(:codeclimate)
+require 'simplecov' if SERVICES.include?(:simplecov)
+require 'coveralls' if SERVICES.include?(:coveralls)
 
 # Don't forget set token
-CodeClimate::TestReporter.start
+CodeClimate::TestReporter.start if SERVICES.include?(:codeclimate)
 
-Coveralls.wear! if Coveralls.should_run?
+Coveralls.wear! if SERVICES.include?(:coveralls) and Coveralls.should_run?
 # Coveralls.wear!('rails') # For RailsApp
 
 # Configure Rails Environment
